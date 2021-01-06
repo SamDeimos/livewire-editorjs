@@ -1,0 +1,52 @@
+{
+    "name": "samdeimos/livewire-editorjs",
+    "description": "Integrate laravel with editorjs using Livewire, Alpinejs, Prism",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "SamDeimos",
+            "email": "zam.2014.sg@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/support": "^7.0|^8.0",
+        "livewire/livewire": "^2.3"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^5.0|^6.0",
+        "phpunit/phpunit": "^8.4|^9.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "SamDeimos\\LivewireEditorjs\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SamDeimos\\LivewireEditorjs\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        },
+        "laravel": {
+            "providers": [
+                "SamDeimos\\LivewireEditorjs\\LivewireEditorjsServiceProvider"
+            ],
+            "aliases": {
+                "LivewireEditorjs": "SamDeimos\\LivewireEditorjs\\LivewireEditorjsFacade"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
