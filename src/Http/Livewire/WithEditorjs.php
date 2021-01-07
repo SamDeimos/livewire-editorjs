@@ -12,10 +12,12 @@ trait WithEditorjs
     {
         $tmpFile = collect($this->images)->last();
 
-        $storedFileName = $tmpFile->store('/', config('editorjs.default_upload_disk'));
+
+
+        $storedFileName = $tmpFile->store('/', config('livewire-editorjs.default_upload_disk'));
 
         $this->dispatchBrowserEvent('updatedImages', [
-            'url' => Storage::disk(config('editorjs.default_download_disk'))->url($storedFileName),
+            'url' => Storage::disk(config('livewire-editorjs.default_upload_disk'))->url($storedFileName),
         ]);
     }
 
@@ -23,9 +25,9 @@ trait WithEditorjs
     {
         $name = basename($url);
         $content = file_get_contents($url);
-        Storage::disk(config('editorjs.default_download_disk'))->put($name, $content);
+        Storage::disk(config('livewire-editorjs.default_upload_disk'))->put($name, $content);
 
-        return Storage::disk(config('editorjs.default_download_disk'))->url($name);
+        return Storage::disk(config('livewire-editorjs.default_upload_disk'))->url($name);
     }
 
     public function setBody(String $content)
